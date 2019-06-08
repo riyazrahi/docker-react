@@ -2,7 +2,7 @@ sudo: required
 services:
   - docker
 before_install:
-  - docker build -t riyaz/simpleweb  Dockerfile .
+  - docker build -t riyaz/simpleweb .
 
 script:
   - docker run riyaz/simpleweb npm run test -- --coverage
