@@ -6,3 +6,16 @@ before_install:
 
 script:
   - docker run riyaz/simpleweb npm run test -- --coverage
+
+deploy:
+  provider: elastickbeanstalk
+  region: "ap-southeast-1"
+  app: "docker"
+  env: "Docker-env"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-829226796929"
+  bucket_path: "docker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
